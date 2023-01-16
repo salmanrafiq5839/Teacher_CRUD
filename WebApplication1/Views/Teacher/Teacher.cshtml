@@ -1,0 +1,43 @@
+﻿@model WebApplication1.Context.Teacher 
+
+@{
+    ViewBag.Title = "Teacher";
+}
+<style>
+    .error{
+        color:red; 
+    }
+</style>
+@using (Html.BeginForm("AddTeacher", "Teacher", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <h1>Teacher Form</h1>
+            <div class="form-group">
+                @Html.HiddenFor(x=>x.TeacherID)
+                <label>Salary</label>
+                @Html.ValidationMessageFor(x => x.Salary, "", new { @class = "error" })
+                @Html.TextBoxFor(x => x.Salary, new { @class = "form-control", @placeholder = "Enter Salary" })
+            </div>
+            <div class="form-group">
+                <label>Position</label>
+                @Html.ValidationMessageFor(x => x.Position, "", new { @class = "error" })
+                @Html.TextBoxFor(x => x.Position, new { @class = "form-control", @placeholder = "Enter Position" })
+            </div>
+            <div class="form-group">
+                <label>CNIC</label>
+                @Html.ValidationMessageFor(x => x.CNIC, "", new { @class = "error" })
+                @Html.TextBoxFor(x => x.CNIC, new { @class = "form-control", @placeholder = "Enter CNIC" })
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" onClick="save();">Submit</button>
+                <button type="reset" class="btn btn-danger">Cancel</button>
+
+            </div>
+
+        </div>
+        
+    </div>
+
+}
